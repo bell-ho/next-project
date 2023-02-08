@@ -1,15 +1,18 @@
 import React from 'react';
 
 const UserProfile = ({ username }) => {
-  return <h1>{username}</h1>;
+  fetch('/api/comment/e1')
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+
+  return <h1></h1>;
 };
 
 export default UserProfile;
 
 export async function getServerSideProps(context) {
   const { params, req, res } = context;
-  console.log(req);
-  console.log(res);
+
   return {
     props: {
       username: 'Max',
